@@ -1,0 +1,90 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+<!--
+  <link href="style.css" rel="stylesheet" />
+-->
+
+  <!-- 0) Scripts -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>
+	// script goes here
+	console.log("Hi! we are on :-)");
+  </script>
+</head>
+<body>
+
+
+
+
+
+
+
+<!-- Title -->
+<label for="name">Paste code here!</label>
+<br>
+
+
+
+<!-- 1) Textbox -->
+<textarea id="MainTextbox" cols=72 rows=40></textarea>
+
+
+
+<!-- 2) Button  -->
+<button onclick="ajaxCall2(MainTextbox);">Click me</button>
+
+
+
+<!-- 3) Script triggered by button -->
+<p id="demo"></p> <!-- tag for something to happen -->
+<script>
+function myFunction() {
+  // something happens
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+
+
+
+
+function ajaxCall(element){
+    var text = $(element).val();
+    $.ajax({
+      url: "127.0.0.1:5000/update_shader",
+      type: "post",
+      data: {jsdata: text},
+      success: function(response) {
+	console.log("Result is successfull!");
+//	d = response["data"];
+//	myChart.destroy();
+//	armarChart(d[0]);
+//	myRadarChart.destroy();
+//	armarRadarChart(d[1]);
+//	myBarChart.destroy();
+//	armarBarChart(d[2]);
+      },
+      error: function(xhr) {
+	console.log('an error has occurred!');
+      }
+    });
+} 
+
+
+function ajaxCall2(element){
+	var text = "something";//$(element).val();
+        console.log("About to send", {data:"something"});
+	$.post("http://127.0.0.1:5000/update_shader?callback=?",text,function(){
+	  console.log("Hey!");
+	});
+} 
+</script>
+
+
+
+</body>
+</html>
