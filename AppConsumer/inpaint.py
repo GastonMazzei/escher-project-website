@@ -1,8 +1,14 @@
 import gradio as gr
 import os, sys, requests
 
-IMAGE_0_ADDR = 'https://github.com/GastonMazzei/escher-project-website/blob/main/0.png?raw=true'
-IAGE_O_MASK_ADDR = 'https://github.com/GastonMazzei/escher-project-website/blob/main/0-mask.png?raw=true'
+#IMAGE_0_ADDR = 'https://github.com/GastonMazzei/escher-project-website/blob/main/0.png?raw=true'
+#IAGE_O_MASK_ADDR = 'https://github.com/GastonMazzei/escher-project-website/blob/main/0-mask.png?raw=true'
+
+IMAGE_0_ADDR = 'https://github.com/GastonMazzei/escher-project-website/blob/main/toyimg.png?raw=true'
+#'https://github.com/GastonMazzei/escher-project-website/blob/main/0.png?raw=true'
+IAGE_O_MASK_ADDR = 'https://github.com/GastonMazzei/escher-project-website/blob/main/toymask.png?raw=true'
+
+#'https://github.com/GastonMazzei/escher-project-website/blob/main/0-mask.png?raw=true'
 
 img = gr.processing_utils.encode_url_or_file_to_base64(IMAGE_0_ADDR)
 print('finished fetching img')
